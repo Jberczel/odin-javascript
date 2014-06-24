@@ -1,9 +1,12 @@
 var num1 = [],
   num2 = [],
-  operand = null;
+  operand = null,
+  solved = false;
 
 $(".numpad").click(function() {
   var input = $(this).html();
+  if (solved) { clear(); }
+
   if (!operand) {
     num1.push(input);
     $("#screen").html(num1.join(''));
@@ -16,15 +19,18 @@ $(".numpad").click(function() {
 
 $(".operator").click(function() {
   var input = $(this).html();
+  //conditional allows users to keep computing numbers off last result
+  if (solved) {  
+    num2 = [];
+    operand = null;
+    solved = false;
+  }
   setOperand(input);
   $(this).fadeOut(100).fadeIn(100);
 })
 
 $('#clear').click(function() {
-  num1 = [];
-  num2 = [];
-  operand = null;
-  $("#screen").html(0);
+  clear();
   $(this).fadeOut(100).fadeIn(100);
 })
 
@@ -47,10 +53,10 @@ $("#equals").click(function() {
         result = n1 / n2;
         break;
     }
-    $("#screen").html(result);
+    $("#screen").html(formatNum(result));
     num1 = [result]; //user can keep hitting 'enter' to continue calculations.
-    num2 = [];
-    operand = null;
+    num2 = [n2];
+    solved = true;
    } 
   $(this).fadeOut(100).fadeIn(100);
 });
@@ -59,5 +65,21 @@ function setOperand(symbol) {
   if (!operand) {   
     operand = symbol.replace("x", "*").replace("%", "/");
     $("#screen").html(num1.join('') + operand);
+  }
+}
+
+function clear() {
+  num1 = [];
+  num2 = [];
+  operand = null;
+  solved = false;
+  $("#screen").html(0);
+}
+
+function formatNum(num) {
+  if (num % 1 === 0) {
+    return num;
+  } else {
+    return num.toFixed(4);
   }
 }
