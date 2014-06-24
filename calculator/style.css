@@ -1,0 +1,100 @@
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  font: bold 18px Helvetica, Arial, sans-serif;
+  background: #F1F1F1;
+}
+
+.container {
+  margin: 60px auto;
+  background: #1E1E1E;
+  overflow:hidden;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.keys {
+   border: 1px solid #282828;
+   float:left;
+   margin: 5px 0px;
+   text-align: center;
+   border-radius: 50%;
+   padding: 10px 5px;
+   width:40px;
+   color: #F7F7F7;
+   margin-right: 5px;
+  background: -webkit-linear-gradient(#8D9194, #51585E);
+  background:    -moz-linear-gradient(#8D9194, #51585E);
+  background:         linear-gradient(#8D9194, #51585E);
+
+}
+
+.numpad {
+  border: 1px solid #282828;
+  background: -webkit-linear-gradient(#4B4B4B, #1E1E1E);
+  background:    -moz-linear-gradient(#4B4B4B, #1E1E1E);
+  background:         linear-gradient(#4B4B4B, #1E1E1E);
+   float:left;
+   margin: 5px 0px;
+   text-align: center;
+   border-radius: 50%;
+   padding: 10px 5px;
+   width:40px;
+   color: #F7F7F7;
+   margin-right: 5px;
+   cursor: pointer;
+
+}
+
+.numpad:hover, .operator:hover, .keys:hover, #equals:hover  {
+  background: #fff;
+  color: #648880;
+}
+
+
+
+.operator {
+  border: 1px solid #282828;
+  float:left;
+  text-align: center;
+  border-radius: 50%;
+  padding: 10px 5px;
+  margin: 5px 0px;
+  width:40px;
+  color: #F7F7F7;
+  background: #645447;
+  margin-right: 5px;
+  cursor: pointer;
+  background: -webkit-linear-gradient(#9B8E88, #645447);
+  background:    -moz-linear-gradient(#9B8E88, #645447);
+  background:         linear-gradient(#9B8E88, #645447);
+
+}
+
+#screen {
+   border: 1px solid #282828;
+   border-radius: 5px;
+   text-align: right;
+   padding-right: 10px;
+   margin: 10px auto;
+   background: #D4DAB6;
+   font-size: 27px;
+   line-height: 36px;
+
+   width:100%;
+
+}
+
+#equals {
+  background: #F37C18;
+  background: -webkit-linear-gradient(#FCB577, #F37C18);
+  background:    -moz-linear-gradient(#FCB577, #F37C18);
+  background:         linear-gradient(#FCB577, #F37C18);
+
+}
+
