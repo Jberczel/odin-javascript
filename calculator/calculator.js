@@ -1,7 +1,8 @@
 var num1 = [],
-  num2 = [],
-  operand = null,
-  solved = false;
+    num2 = [],
+    operand = null,
+    solved = false;
+
 
 $(".numpad").click(function() {
   var input = $(this).html();
@@ -17,6 +18,7 @@ $(".numpad").click(function() {
   $(this).fadeOut(100).fadeIn(100);
 });
 
+
 $(".operator").click(function() {
   var input = $(this).html();
   //conditional allows users to keep computing numbers off last result
@@ -29,10 +31,12 @@ $(".operator").click(function() {
   $(this).fadeOut(100).fadeIn(100);
 })
 
+
 $('#clear').click(function() {
   clear();
   $(this).fadeOut(100).fadeIn(100);
 })
+
 
 $("#equals").click(function() {
   if (num1 && num2 && operand) {
@@ -61,12 +65,14 @@ $("#equals").click(function() {
   $(this).fadeOut(100).fadeIn(100);
 });
 
+
 function setOperand(symbol) {
   if (!operand) {   
     operand = symbol.replace("x", "*").replace("%", "/");
     $("#screen").html(num1.join('') + operand);
   }
 }
+
 
 function clear() {
   num1 = [];
@@ -75,6 +81,7 @@ function clear() {
   solved = false;
   $("#screen").html(0);
 }
+
 
 function formatNum(num) {
   if (num % 1 === 0) {

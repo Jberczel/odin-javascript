@@ -1,6 +1,5 @@
 
 //generate html content with javascript and jQuery
-
 $("#content").append("<img src='images/logo.png' alt='East Moon Asian Bistro'>")
 $("#content").append("<h1>Welcome to East Moon Asian Bistro!</h1>")
 $("#content").append("<p>Located at 13352 Minnieville Rd., Woodbridge, VA, our restaurant offers a wide array of fine Asian dishes, ranging from traditional dish such as Crispy Duck, Shrimp Tempura, Christmas Roll to new style entrees such as One Night in Bangkok, Veggies Stir-Fry, Sweet Potato Roll.</p>")
