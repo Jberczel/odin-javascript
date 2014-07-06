@@ -1,53 +1,56 @@
-$(document).ready(function() {
-  
-  var change_img_time   = 4000;
-  var transition_speed  = 400;
+$(document).ready(function () {
 
-  var listItems         = $("#slider").children('li'),
-      listLen           = listItems.length,
-      i                 = 0,
-      dotItems          = $('#dots').children('li');
+  var change_img_time = 4000,
+      transition_speed = 400;
 
-  listItems.not(':first').hide();
+  var listItems = $("#slider").children('li'),
+      dotItems = $('#dots').children('li'),
+      listLen = listItems.length,
+      current,
+      changeTimeout;
 
-  var changeList        = function(action) {
-      dotItems.removeClass('active');
-      listItems.eq(i).fadeOut(transition_speed);
-      i = i < listLen - 1 ? i + 1 : 0;
-      dotItems.eq(i).addClass('active');
-      listItems.eq(i).fadeIn(transition_speed); 
+  function moveTo(newIndex) {
+
+      var i = newIndex;
+
+      if (newIndex == 'prev') {
+          i = (current > 0) ? (current - 1) : (listLen - 1);
+      }
+
+      if (newIndex == 'next') {
+          i = (current < listLen - 1) ? (current + 1) : 0;
+      }
+
+      dotItems.removeClass('active')
+              .eq(i).addClass('active');
+
+      listItems.fadeOut(transition_speed)
+               .eq(i).fadeIn(transition_speed);
+
+      current = i;
+
+      //resets time interval if user clicks on slider dot; then begin automated slider
+      clearTimeout(changeTimeout);
+      changeTimeout = setTimeout(function() { moveTo('next'); }, change_img_time);
   };
 
-  setInterval(changeList, change_img_time);
-  //setInterval(function() { changeList('next') }, change_img_time);
-
-
-  // TODO: refactor fading out and fading in images.  The select and previous event handlers use similar code,
-  //      but change index differently. 
-
   // Event handlers
-  $("#dots li").click(function() {
-    var select = $("#dots li").index(this);
-    dotItems.removeClass('active');
-    listItems.eq(i).fadeOut(transition_speed);
-    i = select;
-    dotItems.eq(i).addClass('active');
-    listItems.eq(i).fadeIn(transition_speed);
+  $("#dots li").click(function () {
+    var i = $('#dots li').index(this);
+    moveTo(i);
   });
 
-  $("#prev").click(function() {
-    dotItems.removeClass('active');
-    listItems.eq(i).fadeOut(transition_speed);
-    i = i >= 0 ? i - 1 : listLen - 1;
-    dotItems.eq(i).addClass('active');
-    listItems.eq(i).fadeIn(transition_speed);
+  $("#prev").click(function () {
+    moveTo('prev');
   });
 
-  $("#next").click(function() {
-    changeList();
+  $("#next").click(function () {
+    moveTo('next');
   });
+  
+  //initialize slider on load
+  moveTo('next');
+
+
 
 });
-
-
-
