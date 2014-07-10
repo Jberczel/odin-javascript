@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h2>Project: Putting Google Maps Onto Your Site with Javascript</h2>
+
+      <!-- Panel to enter coordinates for google map -->
+      <div id="panel">
+        Latitude: <input type="text" id="lat" name="lat">
+        Longitude: <input type="text" id="lon" name="lon">
+        Comment: <textarea id="comment" rows="1" cols="40" maxlength="140"></textarea>
+        <input onclick="addMarker();" type="button" value="Add Location" >
+      </div>
+    </header>
+
+    <!-- google api map -->
+    <div id="map-canvas"/>
+  </body>
+</html>

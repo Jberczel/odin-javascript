@@ -1,0 +1,23 @@
+html, body, #map-canvas {
+  height: 100%;
+  margin: 0px;
+  padding: 0px
+}
+
+header {
+  text-align: center;
+}
+
+textarea {
+  vertical-align: bottom;
+}
+
+#panel {
+  margin: 10px auto;
+  text-align: center;
+}
+
+
+
+
+
