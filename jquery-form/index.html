@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<form id="signup">
+  <fieldset>
+    <legend>Create a new account</legend>
+    <p>
+      <label for="email">Your Email</label>
+      <input id="email" name="email" type="email" required/>
+    </p>
+    <p>
+      <label for="verify_email">Confirm Email</label>
+      <input id="verify_email" name="verify_email" type="email" equalTo="#email" required/>
+    </p>
+    <p>
+      <label for="country">Country</label>
+      <input id="country" type="text" name="country"/>
+    </p>
+    <p>
+      <label for="zipcode">Zip Code</label>
+      <input id="zipcode" digits="true" minlength="5" type="text" name="zipcode"/>
+    </p>
+
+    <p>
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" required/>
+    </p>
+
+    <p>
+      <label for="verify_password">Confirm Password</label>
+      <input id="verify_password" type="password" name="verify_password" equalTo="#password" required/>
+    </p>
+    <p>
+      <input class="submit" type="submit" value="Submit"/>
+    </p>
+  </fieldset>
+</form>
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="jquery.validate.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $("#signup").validate();
+    });
+  </script>
+
+</body>
+</html>

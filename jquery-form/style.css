@@ -1,0 +1,18 @@
+#signup {
+  width: 800px;
+  margin: 30px auto;
+}
+
+label {
+  width: 140px;
+
+  display: inline-block;
+}
+
+label.error {
+  color: red;
+  width: 300px;
+}
+
+
+
